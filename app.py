@@ -161,7 +161,10 @@ with col_map:
     st.subheader("Accra Spatial Monitoring & Dynamic Routing")
     
     # Center map on Accra
-    m = folium.Map(location=[5.5600, -0.2050], zoom_start=13, tiles="CartoDB positron")
+   carto_key = st.secrets.get("CARTO_API_KEY", "cb1_4049_1_baaa2180ec1448f2bb56f23c")
+tiles_url = f"https://{{s}}.basemaps.cartocdn.com/light_all/{{z}}/{{x}}/{{y}}{{r}}.png?key={carto_key}"
+attr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+m = folium.Map(location=[5.5600, -0.2050], zoom_start=13, tiles=tiles_url, attr=attr)
 
     # Add Central Depot
     folium.Marker(
