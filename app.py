@@ -167,7 +167,7 @@ with col_map:
 m = folium.Map(location=[5.5600, -0.2050], zoom_start=13, tiles=tiles_url, attr=attr)
 
     # Add Central Depot
-    folium.Marker(
+ folium.Marker(
         location=[DEPOT["lat"], DEPOT["lon"]],
         tooltip="START/END: " + DEPOT["name"],
         icon=folium.Icon(color="black", icon="industry", prefix="fa")
